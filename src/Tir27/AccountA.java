@@ -1,24 +1,14 @@
 package Tir27;
 
-import java.util.Scanner;
+public class AccountA extends Account {
 
-public class AccountA {
-
-    private int balance;
     private int profit;
 
-    public AccountA(int balance, int profit) {
-        this.balance = balance;
+    public AccountA(int profit, int balance) {
+        super(balance);
         this.profit = profit;
     }
 
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 
     public int getProfit() {
         return profit;
@@ -29,7 +19,8 @@ public class AccountA {
     }
 
     public void print() {
-        System.out.println("balance = " + balance + ", profit = " + profit);
+        System.out.println("profit = " + profit);
+        super.print();
     }
 
 }
