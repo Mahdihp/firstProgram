@@ -18,9 +18,10 @@ public class AccountB extends Account {
         this.cardNumber = cardNumber;
     }
 
+    @Override
     public void print() {
-        System.out.println("cardNumber = " + cardNumber);
         super.print();
+        System.out.println("cardNumber = " + cardNumber);
     }
 
 }

@@ -9,7 +9,6 @@ public class AccountA extends Account {
         this.profit = profit;
     }
 
-
     public int getProfit() {
         return profit;
     }
@@ -18,9 +17,10 @@ public class AccountA extends Account {
         this.profit = profit;
     }
 
+    @Override
     public void print() {
-        System.out.println("profit = " + profit);
         super.print();
+        System.out.println("profit = " + profit);
     }
 
 }
