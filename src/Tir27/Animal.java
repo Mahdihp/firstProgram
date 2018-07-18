@@ -7,6 +7,7 @@ public abstract class Animal {
     protected int x;
     protected int y;
 
+
     public Animal(int weight, int height, int x, int y) {
         this.weight = weight;
         this.height = height;
@@ -14,36 +15,38 @@ public abstract class Animal {
         this.y = y;
     }
 
-    public int getWeight() {
+    public final int getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public final void setWeight(int weight) {
         this.weight = weight;
     }
 
-    public int getHeight() {
+    public final int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public final void setHeight(int height) {
         this.height = height;
     }
 
-    public int getX() {
+    public final int getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public final void setX(int x) {
         this.x = x;
     }
 
-    public int getY() {
+    public final int getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public final void setY(int y) {
         this.y = y;
     }
+
+    public abstract void move(int x, int y);
 
 }

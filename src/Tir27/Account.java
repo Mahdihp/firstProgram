@@ -1,6 +1,6 @@
 package Tir27;
 
-public class Account {
+public abstract class Account {
 
     private int balance;
 
