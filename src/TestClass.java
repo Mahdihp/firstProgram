@@ -6,7 +6,7 @@ public class TestClass {
         Long l3 = new Long(2l);
         Long l4 = new Long(2);// upCasting primitive
         Long l5 = 2L;// AutoBoxing
-        Long l6 = 2; //Compile Error
+       // Long l6 = 2; //Compile Error
     }
 
 }
