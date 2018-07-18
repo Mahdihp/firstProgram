@@ -6,6 +6,7 @@ public final class Cat extends Animal {
         super(weight, height, x, y);
     }
 
+
     @Override
     public final void move(int x, int y) {
         this.x += x;
