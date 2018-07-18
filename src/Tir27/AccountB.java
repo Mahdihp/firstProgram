@@ -4,7 +4,7 @@ public class AccountB extends Account {
 
     private String cardNumber;
 
-    public AccountB(String cardNumber, int balance) {
+    public AccountB(int balance, String cardNumber) {
         super(balance);
         this.cardNumber = cardNumber;
     }
