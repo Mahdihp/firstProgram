@@ -12,9 +12,10 @@ public class TestClass {
 //        child.f();
 //        parentRefToChild.f();
 
+
         SomeClass square = new SomeClass();
         square.method(parent);
-        square.method(child);
+        square.method(null);
         square.method(parentRefToChild);
     }
 
