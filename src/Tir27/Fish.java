@@ -6,7 +6,6 @@ public class Fish extends Animal {
         super(weight, height, x, y);
     }
 
-    @Override
     public void move(int x, int y) {
         super.x += x;
     }

@@ -1,6 +1,6 @@
 package Tir27;
 
-public class Animal {
+public abstract class Animal {
 
     protected int weight;
     protected int height;
@@ -46,7 +46,4 @@ public class Animal {
         this.y = y;
     }
 
-    public void move(int x, int y) {
-
-    }
 }
