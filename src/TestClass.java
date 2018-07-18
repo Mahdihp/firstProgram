@@ -15,7 +15,6 @@ public class TestClass {
 
         SomeClass square = new SomeClass();
         square.method(parent);
-        square.method(null);
         square.method(parentRefToChild);
     }
 
