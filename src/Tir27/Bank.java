@@ -6,26 +6,25 @@ public class Bank {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    private static AccountA[] accountAs;
-    private static AccountB[] accountBs;
+    private static Account[] accounts;
 
     public static void main(String[] args) {
         int size = Integer.valueOf(scanner.nextLine());
-        accountAs = new AccountA[size];
-        accountBs = new AccountB[size];
+        accounts = new Account[size];
 
-        for (int i = 0; i < accountAs.length; i++) {
+        for (int i = 0; i < accounts.length; i++) {
             int balance = Integer.valueOf(scanner.nextLine());
-            int profit = Integer.valueOf(scanner.nextLine());
-            AccountA accountA = new AccountA(balance, profit);
-            accountAs[i] = accountA;
-        }
-
-        for (int i = 0; i < accountBs.length; i++) {
-            int balance = Integer.valueOf(scanner.nextLine());
-            String cardNumber = scanner.nextLine();
-            AccountB accountB = new AccountB(balance, cardNumber);
-            accountBs[i] = accountB;
+            int type = Integer.valueOf(scanner.nextLine());
+            if (type == 1) {
+                int profit = Integer.valueOf(scanner.nextLine());
+                AccountA accountA = new AccountA(balance, profit);
+                accounts[i] = accountA;
+            }
+            if (type == 2) {
+                String cardNumber = scanner.nextLine();
+                AccountB accountB = new AccountB(balance, cardNumber);
+                accounts[i] = accountB;
+            }
         }
 
         while (true) {
@@ -38,10 +37,8 @@ public class Bank {
     }
 
     private static void print() {
-        for (AccountA accountA : accountAs)
-            accountA.print();
-        for (AccountB accountB : accountBs)
-            accountB.print();
+        for (Account account : accounts)
+            account.print();
     }
 
 }
