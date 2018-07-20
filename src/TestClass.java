@@ -6,7 +6,7 @@ public class TestClass {
     public static void main(String[] args) {
 
         Shape shape=new Recangle(10,15);
-        ((Recangle) shape).draw2();
+        ((Recangle) shape).draw();
     }
 
     public boolean checkObject(Object o1, Object o2) {
