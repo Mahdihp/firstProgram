@@ -8,6 +8,7 @@ public class BigInt extends Number {
     }
     public BigInt(int number){
         this.number = number;
+
     }
 
     @Override
