@@ -2,7 +2,9 @@ package tamrin_5.dao;
 
 import tamrin_5.dao.AbstractPersonDao;
 import tamrin_5.model.Student;
+import tamrin_5.model.Teacher;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,11 +22,16 @@ public class StudentDao extends AbstractPersonDao<Student> {
     public void addEntity(Student person) {
         Student student = (Student)person;
         try {
-            Statement stmt = connection.createStatement();
-            String sql = "INSERT INTO student(fname,lname,address,teacher_id) VALUES " +
-                    "('" + student.getFname() + "','" + student.getLname() +
-                    "','" + student.getAddress() + "'," + student.getTeacher_id()+");";
-            stmt.executeQuery(sql);
+            String sql = "INSERT INTO student(fname,lname,department,teacher_id) VALUES (?,?,?,?)";
+            PreparedStatement preparedStatement = null;
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, student.getFname());
+            preparedStatement.setString(2, student.getLname());
+            preparedStatement.setString(3, student.getDepartment());
+            preparedStatement.setInt(4, student.getTeacher_id());
+
+            System.out.println(student.getDepartment());
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

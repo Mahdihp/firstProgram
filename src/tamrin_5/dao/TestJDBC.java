@@ -1,6 +1,7 @@
 package tamrin_5.dao;
 
 import tamrin_5.model.Student;
+import tamrin_5.model.Teacher;
 
 import java.util.Scanner;
 
@@ -15,9 +16,10 @@ public class TestJDBC {
             System.out.println("3: Delete Student:");
             System.out.println("4: Find By Id Student:");
             System.out.println("5: Find By Id Teacher:");
-            System.out.println("6: List All Teacher And Student:");
+            System.out.println("6: List All Teacher:");
+            System.out.println("7: List All Student:");
             System.out.println("0: Exit");
-            System.out.print("Enter Your Choice:");
+            System.out.println("Enter Your Choice:");
             int i = scanner.nextInt();
             switch (i) {
                 case 1:
@@ -34,7 +36,10 @@ public class TestJDBC {
                     findByIdTeacher();
                     break;
                 case 6:
-                    listOfTeacherAndStudent();
+                    listTeacher();
+                    break;
+                case 7:
+                    listStudent();
                     break;
                 case 0:
                     again = false;
@@ -63,11 +68,21 @@ public class TestJDBC {
     private static void findByIdStudent() {
     }
 
-    private static void listOfTeacherAndStudent() {
+    private static void listTeacher() {
+        TeacherDao teacherDao=new TeacherDao();
+        for(Teacher t :teacherDao.getAllEntity()){
+            System.out.println(t.getFname() +" , "+ t.getLname() +" , "+ t.getAddress());
+        }
+        System.out.println();
+    }
+    private static void listStudent() {
 
     }
 
     private static void addTeacher() {
+        TeacherDao teacherDao=new TeacherDao();
+        Teacher t1=new Teacher("sadegh","Aliakbari","Computer");
+        teacherDao.addEntity(t1);
 
     }
 }

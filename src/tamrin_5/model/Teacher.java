@@ -2,31 +2,31 @@ package tamrin_5.model;
 
 public class Teacher extends Person {
 
-    private String dept;
+    private String address;
 
-    public Teacher( String fname, String lname, String dept) {
+    public Teacher( String fname, String lname, String address) {
         super(fname,lname);
-        this.dept = dept;
+        this.address = address;
     }
 
-    public Teacher(int id, String fname, String lname, String dept) {
+    public Teacher(int id, String fname, String lname, String address) {
         super(id,fname,lname);
-        this.dept = dept;
+        this.address = address;
     }
 
 
-    public String getDept() {
-        return dept;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "dept='" + dept + '\'' +
+                "address='" + address + '\'' +
                 "} " + super.toString();
     }
 }

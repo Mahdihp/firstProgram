@@ -12,7 +12,7 @@ public abstract class AbstractPersonDao<T extends  Person> implements Dao<T>{
 
     public AbstractPersonDao() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
