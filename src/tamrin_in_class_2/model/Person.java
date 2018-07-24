@@ -9,6 +9,11 @@ public class Person {
     public Person() {
     }
 
+    public Person( String fname, String lname) {
+        this.fname = fname;
+        this.lname = lname;
+    }
+
     public Person(int id, String fname, String lname) {
         this.id = id;
         this.fname = fname;

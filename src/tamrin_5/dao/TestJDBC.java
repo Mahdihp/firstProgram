@@ -1,5 +1,7 @@
 package tamrin_5.dao;
 
+import tamrin_5.model.Student;
+
 import java.util.Scanner;
 
 public class TestJDBC {
@@ -14,7 +16,7 @@ public class TestJDBC {
             System.out.println("4: Find By Id Student:");
             System.out.println("5: Find By Id Teacher:");
             System.out.println("6: List All Teacher And Student:");
-            System.out.println("7: Exit");
+            System.out.println("0: Exit");
             System.out.print("Enter Your Choice:");
             int i = scanner.nextInt();
             switch (i) {
@@ -34,7 +36,7 @@ public class TestJDBC {
                 case 6:
                     listOfTeacherAndStudent();
                     break;
-                case 7:
+                case 0:
                     again = false;
                     break;
                 default:
@@ -48,12 +50,10 @@ public class TestJDBC {
 
     }
 
-    private static void deleteTeacher() {
-
-    }
-
     private static void addStudent() {
-
+        StudentDao studentDao=new StudentDao();
+        Student s1=new Student("mahdi","Hosseinpour","Qom",1);
+        studentDao.addEntity(s1);
     }
 
     private static void deleteStudent() {

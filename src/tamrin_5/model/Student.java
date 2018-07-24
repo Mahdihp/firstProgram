@@ -9,8 +9,14 @@ public class Student extends Person {
         super();
     }
 
+    public Student(String fname, String lname, String address, int teacher_id) {
+        super(fname,lname);
+        Address = address;
+        this.teacher_id = teacher_id;
+    }
+
     public Student(int id, String fname, String lname, String address, int teacher_id) {
-        super(id,fname,lname);
+        super(id, fname, lname);
         Address = address;
         this.teacher_id = teacher_id;
     }
