@@ -4,9 +4,10 @@ public class ExThree {
     public static void main(String[] args) {
         double determinant;
         double x[][] = {
-                {10, 15, 7,},
-                {20, 57, 30,},
-                {37, 56, 85,},
+                {1,0,0,0},
+                {0,1,0,0},
+                {0,0,1,0},
+                {0,0,0,1},
         };
 
         System.out.println (matrixDeterminant (x));

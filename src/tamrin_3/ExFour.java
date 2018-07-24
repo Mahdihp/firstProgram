@@ -2,9 +2,10 @@ package tamrin_3;
 
 public class ExFour {
     public static void main(String[] args) {
-//        System.out.println(makhrajMostarak(3, 2));
+//        System.out.println(new Rational().makhrajMostarak(3, 2));
     }
-    class Rational {
+
+  /*  class Rational {
         private int x = 0;
         private int y = 1;
 
@@ -13,28 +14,32 @@ public class ExFour {
             this.y = y / 2;
         }
 
-        /*public Rational add(Rational num){
-            if (this.y == num.y){
-                return new Rational(num.x + this.x,this.y);
-            }else{
+        public Rational add(Rational num) {
+            if (this.y == num.y) {
+                return new Rational(num.x + this.x, this.y);
+            } else {
 
             }
 
         }
-        public Rational sub(Rational num){
-            if (this.y == num.y){
-                return new Rational(num.x - this.x,this.y);
-            }else{
+
+        public Rational sub(Rational num) {
+            if (this.y == num.y) {
+                return new Rational(num.x - this.x, this.y);
+            } else {
 
             }
         }
-        public Rational mul(Rational num){
-            return new Rational(0,num.y - this.y);
+
+        public Rational mul(Rational num) {
+            return new Rational(0, num.y - this.y);
         }
-        public Rational div(Rational num){
-            return new Rational(0,num.y - this.y);
-        }*/
-        public  int makhrajMostarak(int n1, int n2) {
+
+        public Rational div(Rational num) {
+            return new Rational(0, num.y - this.y);
+        }
+
+        public int makhrajMostarak(int n1, int n2) {
             int lcm;
 
             // maximum number between n1 and n2 is stored in lcm
@@ -52,11 +57,12 @@ public class ExFour {
         }
 
     }
-    public static double toFloatingPoint(Rational num){
+*/
+    /*public static double toFloatingPoint(Rational num) {
         int teeny = num.y * (num.y * 111);
         int teenx = num.x * (num.y * 111);
-return 0.0;
-    }
+        return 0.0;
+    }*/
 
 
 }

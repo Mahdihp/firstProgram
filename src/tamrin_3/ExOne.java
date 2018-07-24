@@ -23,7 +23,7 @@ public class ExOne {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String num = sc.next();
-//        decimalToBinary(Integer.valueOf(num));
-        binaryToDecimal(num);
+        decimalToBinary(Integer.valueOf(num));
+//        binaryToDecimal(num);
     }
 }
