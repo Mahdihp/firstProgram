@@ -15,9 +15,8 @@ public class TestJDBC {
             System.out.println("2: Add Student:");
             System.out.println("3: Delete Student:");
             System.out.println("4: Find By Id Student:");
-            System.out.println("5: Find By Id Teacher:");
-            System.out.println("6: List All Teacher:");
-            System.out.println("7: List All Student:");
+            System.out.println("5: List All Teacher:");
+            System.out.println("6: List All Student:");
             System.out.println("0: Exit");
             System.out.println("Enter Your Choice:");
             int i = scanner.nextInt();
@@ -62,10 +61,18 @@ public class TestJDBC {
     }
 
     private static void deleteStudent() {
-
+        System.out.print("Enter Student Id :");
+        int id = new Scanner(System.in).nextInt();
+        StudentDao studentDao=new StudentDao();
+        studentDao.deleteEntity(id);
     }
 
     private static void findByIdStudent() {
+        System.out.print("Enter Student Id :");
+        int id = new Scanner(System.in).nextInt();
+        StudentDao studentDao=new StudentDao();
+        Teacher t =studentDao.findByIdEntity(id);
+        System.out.println(t.getFname()+" , "+t.getLname()+" , "+t.getAddress());
     }
 
     private static void listTeacher() {
@@ -76,7 +83,11 @@ public class TestJDBC {
         System.out.println();
     }
     private static void listStudent() {
-
+        StudentDao studentDao=new StudentDao();
+        for(Student s :studentDao.getAllEntity()){
+            System.out.println(s.getFname() +" , "+ s.getLname() +" , "+ s.getDepartment());
+        }
+        System.out.println();
     }
 
     private static void addTeacher() {

@@ -20,7 +20,7 @@ public class StudentDao extends AbstractPersonDao<Student> {
 
     @Override
     public void addEntity(Student person) {
-        Student student = (Student)person;
+        Student student = (Student) person;
         try {
             String sql = "INSERT INTO student(fname,lname,department,teacher_id) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = null;
@@ -37,10 +37,20 @@ public class StudentDao extends AbstractPersonDao<Student> {
         }
     }
 
+    public void deleteEntity(int id) {
+        try {
+            Statement stmt = connection.createStatement();
+            String sql = "DELETE From student where id =" + id;
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void deleteEntity(Student person) {
-        Student student = (Student)person;
+        Student student = (Student) person;
         try {
             Statement stmt = connection.createStatement();
             String sql = "DELETE From student where id = " + student.getId();
@@ -51,9 +61,27 @@ public class StudentDao extends AbstractPersonDao<Student> {
         }
     }
 
+    public Teacher findByIdEntity(int id) {
+        Teacher stud = null;
+        try {
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT * From student where id = " + id;
+            ResultSet resultSet = stmt.executeQuery(sql);
+            resultSet.next();
+            int teacherId= resultSet.getInt("teacher_id");
+            sql = "SELECT * FROM teacher where id ="+ teacherId;
+            resultSet = stmt.executeQuery(sql);
+            resultSet.next();
+            stud =new Teacher(resultSet.getString("fname"),resultSet.getString("lname"),resultSet.getString("address"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stud;
+    }
+
     @Override
     public Student findByIdEntity(Student person) {
-        Student student = (Student)person;
+        Student student = (Student) person;
         Student stud = null;
         try {
             Statement stmt = connection.createStatement();
