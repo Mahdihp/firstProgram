@@ -4,28 +4,34 @@ import mordad_3th.entity.BookEntity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class BookDao {
 
     public boolean create(BookEntity bookEntity) {
         String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
+        Connection connection = null;
         try {
-
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            Connection connection = DriverManager.getConnection(url);
-
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+            connection = DriverManager.getConnection(url);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        String sql = "INSERT INTO book(id,bookName,isbn,author) VALUES(?,?,?,?);";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, bookEntity.getId());
+            ps.setString(2, bookEntity.getBookName());
+            ps.setString(3, bookEntity.getIsbn());
+            ps.setString(4, bookEntity.getAuthor());
+            ps.executeUpdate();
 
-        return true;// فعلا
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     public BookEntity read(int id) {
