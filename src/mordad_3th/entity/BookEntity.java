@@ -3,18 +3,18 @@ package mordad_3th.entity;
 public class BookEntity {
 
     private int id;
-    private String bookName;
+    private String name;
     private String isbn;
-    private String author;
+    private int writerId;
 
     public BookEntity() {
     }
 
-    public BookEntity(int id, String bookName, String isbn, String author) {
+    public BookEntity(int id, String name, String isbn, int writerId) {
         this.id = id;
-        this.bookName = bookName;
+        this.name = name;
         this.isbn = isbn;
-        this.author = author;
+        this.writerId = writerId;
     }
 
     public int getId() {
@@ -25,12 +25,12 @@ public class BookEntity {
         this.id = id;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getName() {
+        return name;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIsbn() {
@@ -41,21 +41,21 @@ public class BookEntity {
         this.isbn = isbn;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getWriterId() {
+        return writerId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setWriterId(int writerId) {
+        this.writerId = writerId;
     }
 
     @Override
     public String toString() {
         return "BookEntity{" +
                 "id=" + id +
-                ", bookName='" + bookName + '\'' +
+                ", name='" + name + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", author='" + author + '\'' +
+                ", writerId='" + writerId + '\'' +
                 '}';
     }
 }

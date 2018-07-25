@@ -19,13 +19,13 @@ public class BookDao {
     }
 
     public boolean create(BookEntity bookEntity) {
-        String sql = "INSERT INTO book(id,bookName,isbn,author) VALUES(?,?,?,?);";
+        String sql = "INSERT INTO book(id,bookName,isbn,writer_id) VALUES(?,?,?,?);";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, bookEntity.getId());
-            ps.setString(2, bookEntity.getBookName());
+            ps.setString(2, bookEntity.getName());
             ps.setString(3, bookEntity.getIsbn());
-            ps.setString(4, bookEntity.getAuthor());
+            ps.setInt(4, bookEntity.getWriterId());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -42,10 +42,10 @@ public class BookDao {
             ResultSet rs = ps.executeQuery();
             rs.next();
             int idBook = rs.getInt("id");
-            String bookName = rs.getString("bookName");
+            String name = rs.getString("name");
             String isbn = rs.getString("isbn");
-            String author = rs.getString("author");
-            return new BookEntity(idBook, bookName, isbn, author);
+            int writer_id = rs.getInt("writer_id");
+            return new BookEntity(idBook, name, isbn, writer_id);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -54,11 +54,11 @@ public class BookDao {
 
     public boolean update(BookEntity bookEntity) {
         try {
-            String sql = "UPDATE book SET bookName=?,isbn=?,author=? WHERE id=?;";
+            String sql = "UPDATE book SET name=?,isbn=?,writer_id=? WHERE id=?;";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, bookEntity.getBookName());
+            ps.setString(1, bookEntity.getName());
             ps.setString(2, bookEntity.getIsbn());
-            ps.setString(3, bookEntity.getAuthor());
+            ps.setInt(3, bookEntity.getWriterId());
             ps.setInt(4, bookEntity.getId());
             ps.executeUpdate();
             return true;
@@ -93,10 +93,10 @@ public class BookDao {
             int i = 0;
             while (rs.next()) {
                 int idBook = rs.getInt("id");
-                String bookName = rs.getString("bookName");
+                String name = rs.getString("name");
                 String isbn = rs.getString("isbn");
-                String author = rs.getString("author");
-                be[i] = new BookEntity(idBook, bookName, isbn, author);
+                int writer_id = rs.getInt("writer_id");
+                be[i] = new BookEntity(idBook, name, isbn, writer_id);
                 i++;
             }
             return be;
