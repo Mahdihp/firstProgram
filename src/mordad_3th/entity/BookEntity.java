@@ -1,28 +1,20 @@
 package mordad_3th.entity;
 
-public class BookEntity {
+public class BookEntity extends Entity {
 
-    private int id;
     private String name;
     private String isbn;
     private int writerId;
 
     public BookEntity() {
+        super();
     }
 
     public BookEntity(int id, String name, String isbn, int writerId) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.isbn = isbn;
         this.writerId = writerId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -52,10 +44,9 @@ public class BookEntity {
     @Override
     public String toString() {
         return "BookEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", writerId='" + writerId + '\'' +
-                '}';
+                ", writerId=" + writerId +
+                "} " + super.toString();
     }
 }

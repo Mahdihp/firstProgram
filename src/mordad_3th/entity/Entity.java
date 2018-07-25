@@ -1,8 +1,11 @@
 package mordad_3th.entity;
 
-public class Entity {
+public abstract class Entity {
 
     private int id;
+
+    public Entity() {
+    }
 
     public Entity(int id) {
         this.id = id;

@@ -1,24 +1,16 @@
 package mordad_3th.dao;
 
+import mordad_3th.entity.Entity;
 import mordad_3th.entity.WriterEntity;
 
 import java.sql.*;
 
-public class WriterDao {
+public class WriterDao extends Dao {
 
-    private Connection connection = null;
-    private String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
+    @Override
+    public boolean create(Entity entity) {
+        WriterEntity writerEntity = (WriterEntity) entity;
 
-    public WriterDao() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection(url);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean create(WriterEntity writerEntity) {
         String sql = "INSERT INTO writer(id,name,age,style) VALUES(?,?,?,?);";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -33,8 +25,8 @@ public class WriterDao {
             return false;
         }
     }
-
-    public WriterEntity read(int id) {
+    @Override
+    public Entity read(int id) {
         String sql = "SELECT * FROM writer WHERE id=?;";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -51,8 +43,10 @@ public class WriterDao {
             return null;
         }
     }
-    public boolean update(WriterEntity writerEntity) {
+    @Override
+    public boolean update(Entity entity) {
         try {
+            WriterEntity writerEntity = (WriterEntity) entity;
             String sql = "UPDATE writer SET name=?,age=?,style=? WHERE id=?;";
             PreparedStatement ps = connection.prepareStatement(sql);
 
@@ -79,7 +73,7 @@ public class WriterDao {
             return false;
         }
     }
-    public WriterEntity[] readAll() {
+    public Entity[] readAll() {
         String sql = "SELECT * FROM writer";
         WriterEntity[] be = null;
         try {

@@ -1,28 +1,20 @@
 package mordad_3th.entity;
 
-public class WriterEntity {
+public class WriterEntity extends Entity {
 
-    private int id;
     private String name;
     private int age;
     private String style;
 
     public WriterEntity() {
+        super();
     }
 
     public WriterEntity(int id, String name, int age, String style) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.age = age;
         this.style = style;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -52,10 +44,9 @@ public class WriterEntity {
     @Override
     public String toString() {
         return "WriterEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 ", style='" + style + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

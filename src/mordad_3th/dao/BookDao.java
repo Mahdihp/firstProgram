@@ -1,24 +1,17 @@
 package mordad_3th.dao;
 
 import mordad_3th.entity.BookEntity;
+import mordad_3th.entity.Entity;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class BookDao {
+public class BookDao extends Dao {
 
-    private Connection connection = null;
-    private String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
-
-    public BookDao() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection(url);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean create(BookEntity bookEntity) {
+    @Override
+    public boolean create(Entity entity) {
+        BookEntity bookEntity = (BookEntity) entity;
         String sql = "INSERT INTO book(id,bookName,isbn,writer_id) VALUES(?,?,?,?);";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -34,7 +27,8 @@ public class BookDao {
         }
     }
 
-    public BookEntity read(int id) {
+    @Override
+    public Entity read(int id) {
         String sql = "SELECT * FROM book WHERE id=?;";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -52,7 +46,8 @@ public class BookDao {
         }
     }
 
-    public boolean update(BookEntity bookEntity) {
+    public boolean update(Entity entity) {
+        BookEntity bookEntity = (BookEntity) entity;
         try {
             String sql = "UPDATE book SET name=?,isbn=?,writer_id=? WHERE id=?;";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -81,7 +76,7 @@ public class BookDao {
         }
     }
 
-    public BookEntity[] readAll() {
+    public Entity[] readAll() {
         String sql = "SELECT * FROM book";
         BookEntity[] be = null;
         try {
