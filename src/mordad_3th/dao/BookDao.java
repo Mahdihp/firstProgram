@@ -27,16 +27,15 @@ public class BookDao {
             ps.setString(3, bookEntity.getIsbn());
             ps.setString(4, bookEntity.getAuthor());
             ps.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
     public BookEntity read(int id) {
         String sql = "SELECT * FROM book WHERE id=?;";
-        BookEntity bookEntity = null;
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
@@ -46,28 +45,65 @@ public class BookDao {
             String bookName = rs.getString("bookName");
             String isbn = rs.getString("isbn");
             String author = rs.getString("author");
-            bookEntity = new BookEntity(idBook, bookName, isbn, author);
+            return new BookEntity(idBook, bookName, isbn, author);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-        return bookEntity;
     }
 
     public boolean update(BookEntity bookEntity) {
-        return true;// فعلا
+        try {
+            String sql = "UPDATE book SET bookName=?,isbn=?,author=? WHERE id=?;";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, bookEntity.getBookName());
+            ps.setString(2, bookEntity.getIsbn());
+            ps.setString(3, bookEntity.getAuthor());
+            ps.setInt(4, bookEntity.getId());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean delete(int id) {
-        return true;// فعلا
+        try {
+            String sql = "DELETE FROM book WHERE id=?;";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public BookEntity[] readAll() {
-        return null; //فعلا
+        String sql ="SELECT * FROM book";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
     }
 
-    public boolean deleteAll() {
-        return true;// فعلا
+    public boolean empty() {
+        try {
+            String sql = "DELETE FROM book";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
