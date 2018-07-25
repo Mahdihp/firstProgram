@@ -2,22 +2,23 @@ package mordad_3th.dao;
 
 import mordad_3th.entity.BookEntity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class BookDao {
 
-    public boolean create(BookEntity bookEntity) {
-        String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
-        Connection connection = null;
+    private Connection connection = null;
+    private String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
+
+    public BookDao() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(url);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean create(BookEntity bookEntity) {
         String sql = "INSERT INTO book(id,bookName,isbn,author) VALUES(?,?,?,?);";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -26,7 +27,6 @@ public class BookDao {
             ps.setString(3, bookEntity.getIsbn());
             ps.setString(4, bookEntity.getAuthor());
             ps.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -35,7 +35,23 @@ public class BookDao {
     }
 
     public BookEntity read(int id) {
-        return null;// فعلا
+        String sql = "SELECT * FROM book WHERE id=?;";
+        BookEntity bookEntity = null;
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int idBook = rs.getInt("id");
+            String bookName = rs.getString("bookName");
+            String isbn = rs.getString("isbn");
+            String author = rs.getString("author");
+            bookEntity = new BookEntity(idBook, bookName, isbn, author);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return bookEntity;
     }
 
     public boolean update(BookEntity bookEntity) {
