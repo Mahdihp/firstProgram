@@ -8,6 +8,8 @@ public class TestClass {
         BookDao dao = new BookDao();
 //        BookEntity be = new BookEntity(3, "Java Champion 3", "44444", "Mahdihp");
 
-        System.out.println(dao.delete(3));
+        for(BookEntity be :dao.readAll()) {
+            System.out.println(be);
+        }
     }
 }

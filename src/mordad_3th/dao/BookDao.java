@@ -87,9 +87,9 @@ public class BookDao {
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            rs.last();
-            be = new BookEntity[rs.getRow()];
-            rs.beforeFirst();
+            rs.last();// move to last row
+            be = new BookEntity[rs.getRow()]; // get row count
+            rs.beforeFirst(); // move to first row
             int i = 0;
             while (rs.next()) {
                 int idBook = rs.getInt("id");
@@ -99,6 +99,7 @@ public class BookDao {
                 be[i] = new BookEntity(idBook, bookName, isbn, author);
                 i++;
             }
+            return be;
 
         } catch (SQLException e) {
             e.printStackTrace();
