@@ -82,16 +82,28 @@ public class BookDao {
     }
 
     public BookEntity[] readAll() {
-        String sql ="SELECT * FROM book";
+        String sql = "SELECT * FROM book";
+        BookEntity[] be = null;
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
+            rs.last();
+            be = new BookEntity[rs.getRow()];
+            rs.beforeFirst();
+            int i = 0;
+            while (rs.next()) {
+                int idBook = rs.getInt("id");
+                String bookName = rs.getString("bookName");
+                String isbn = rs.getString("isbn");
+                String author = rs.getString("author");
+                be[i] = new BookEntity(idBook, bookName, isbn, author);
+                i++;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-        return null;
     }
 
     public boolean empty() {
