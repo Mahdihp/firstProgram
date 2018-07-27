@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>tamrin_6.Java_part.model</OriginalElement>
+  <nodes>
+    <node x="172.41666666666669" y="169.0">tamrin_6.Java_part.model.Researches</node>
+    <node x="0.0" y="605.0">tamrin_6.Java_part.model.Member</node>
+    <node x="246.0" y="458.0">tamrin_6.Java_part.model.Person</node>
+    <node x="0.0" y="316.0">tamrin_6.Java_part.model.Article</node>
+    <node x="322.0" y="327.0">tamrin_6.Java_part.model.Thesis</node>
+    <node x="231.0" y="605.0">tamrin_6.Java_part.model.Librarian</node>
+    <node x="463.0" y="605.0">tamrin_6.Java_part.model.BookWriter</node>
+    <node x="759.4166666666667" y="169.0">tamrin_6.Java_part.model.StoryBook</node>
+    <node x="499.75" y="0.0">tamrin_6.Java_part.model.Book</node>
+    <node x="461.41666666666663" y="147.0">tamrin_6.Java_part.model.ScienceBook</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="tamrin_6.Java_part.model.Thesis" target="tamrin_6.Java_part.model.Researches">
+      <point x="0.0" y="-37.5" />
+      <point x="462.5" y="291.0" />
+      <point x="374.1666666666667" y="291.0" />
+      <point x="67.25" y="37.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.Librarian" target="tamrin_6.Java_part.model.Person">
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.Article" target="tamrin_6.Java_part.model.Researches">
+      <point x="0.0" y="-48.5" />
+      <point x="151.0" y="291.0" />
+      <point x="239.66666666666669" y="291.0" />
+      <point x="-67.25" y="37.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.ScienceBook" target="tamrin_6.Java_part.model.Book">
+      <point x="0.0" y="-59.5" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.Member" target="tamrin_6.Java_part.model.Person">
+      <point x="0.0" y="-37.5" />
+      <point x="105.5" y="580.0" />
+      <point x="276.3333333333333" y="580.0" />
+      <point x="-60.666666666666686" y="48.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.BookWriter" target="tamrin_6.Java_part.model.Person">
+      <point x="0.0" y="-37.5" />
+      <point x="575.5" y="580.0" />
+      <point x="397.66666666666663" y="580.0" />
+      <point x="60.66666666666663" y="48.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.StoryBook" target="tamrin_6.Java_part.model.Book">
+      <point x="0.0" y="-37.5" />
+      <point x="891.9166666666667" y="122.0" />
+      <point x="667.25" y="122.0" />
+      <point x="67.0" y="48.5" />
+    </edge>
+    <edge source="tamrin_6.Java_part.model.Researches" target="tamrin_6.Java_part.model.Book">
+      <point x="0.0" y="-37.5" />
+      <point x="306.9166666666667" y="122.0" />
+      <point x="533.25" y="122.0" />
+      <point x="-67.0" y="48.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="604.0" y="246.5" />
+  <SelectedNodes>
+    <node>tamrin_6.Java_part.model.Article</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
