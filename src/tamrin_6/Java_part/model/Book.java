@@ -12,7 +12,7 @@ public class Book {
 
 
     public void getWriter() {
-        System.out.println("First Nmae : " + bookWriter.getfName() + ", Last Name : " + bookWriter.getlName());
+        System.out.println("First Nmae : " + bookWriter.getFirstName() + ", Last Name : " + bookWriter.getLastName());
     }
 
     public void getMemberBorrowed(){
