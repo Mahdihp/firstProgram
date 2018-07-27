@@ -1,4 +1,4 @@
-package mordad_5;
+package mordad_5.form;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,16 +21,13 @@ public class LoginForm {
                     JFrame jFrame = new JFrame("Java calculator");
                     jFrame.setSize(new Dimension(300, 100));
 
-                    jFrame.setContentPane(new SwingApp().mainPanel);
-//                    jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    jFrame.setContentPane(new MainForm().mainPanel);
+                    jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     jFrame.pack();
                     jFrame.setVisible(true);
 
                     loginFrame.dispose();
-
                 }
-
-
             }
         });
     }

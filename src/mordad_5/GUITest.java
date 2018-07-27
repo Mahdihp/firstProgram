@@ -33,7 +33,6 @@ public class GUITest {
         jFrame.add(txtNum1);
         jFrame.add(txtNum2);
        // jFrame.setVisible(true);
-        SwingApp swingApp=new SwingApp();
 
     }
 

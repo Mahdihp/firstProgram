@@ -1,4 +1,4 @@
-package mordad_5;
+package mordad_5.form;
 
 import javax.swing.*;
 import java.awt.*;
