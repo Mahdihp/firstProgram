@@ -9,4 +9,12 @@ public class Librarian extends Person {
         super(firstName, lastName);
         this.librarianID = librarianID;
     }
+
+    public int getLibrarianID() {
+        return librarianID;
+    }
+
+    public void setLibrarianID(int librarianID) {
+        this.librarianID = librarianID;
+    }
 }
