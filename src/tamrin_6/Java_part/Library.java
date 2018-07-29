@@ -1,6 +1,7 @@
 package tamrin_6.Java_part;
 
 import tamrin_6.Java_part.model.Book;
+import tamrin_6.Java_part.model.BorreowBook;
 import tamrin_6.Java_part.model.Member;
 
 import java.util.ArrayList;
@@ -12,8 +13,8 @@ public class Library {
 
     private String name;
     private String Librarian;
-    private List<Book> bookList = new ArrayList<>();
-    private Map<Book, LibraryDate> borreowedBooksList = new HashMap<>();
+    private List<Book> bookList = new ArrayList<>(); // لیست ککل کتاب ها
+    private List<BorreowBook> borreowBookList=new ArrayList<>(); // کتاب های امانت داده شده
 
     public Library(String name) {
         this.name = name;
@@ -29,6 +30,7 @@ public class Library {
 
     public void addBorreowedBooks(Book book, Member member, LibraryDate
             borrowedBackDate) {
+        borreowBookList.add(new BorreowBook(book,member,borrowedBackDate));
     }
 
     public void deleteBorrowedBook(Book borrowedBook, LibraryDate
