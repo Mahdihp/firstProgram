@@ -11,7 +11,7 @@ public class Library {
     private List<Person> librarianList = new ArrayList<>(); // لیست متصدیان کتابخانه
     private List<Book> bookList = new ArrayList<>(); // لیست ککل کتاب ها
     private List<BorreowBook> borreowBookList = new ArrayList<>(); // کتاب های امانت داده شده
-    private List<Member> memberList=new ArrayList<>();
+    private List<Member> memberList=new ArrayList<>(); // لیست اعضای کتابخانه
 
     public Library(String name) {
         this.name = name;

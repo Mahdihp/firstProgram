@@ -11,6 +11,24 @@ public class Article  extends Researches{
         this.year = year;
     }
     public void getInfo(){
+        System.out.println("Journal Name : " + journal +", Year : " + year +", Unibersity : "
+                +getUniversityName() +", Article Name : "+getBookWriter());
 
+    }
+
+    public String getJournal() {
+        return journal;
+    }
+
+    public void setJournal(String journal) {
+        this.journal = journal;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

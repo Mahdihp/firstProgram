@@ -10,6 +10,8 @@ public class Thesis extends Researches {
     }
 
     public void getInfo(){
+        System.out.println("Professor Name : " + professor + getBookWriter() +
+                " ,Unibersity : " + getUniversityName());
 
     }
 }

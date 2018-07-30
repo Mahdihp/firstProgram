@@ -12,7 +12,7 @@ public class ScienceBook extends Book {
     }
 
     public void getInfo() {
-        System.out.println("");
+        System.out.println("Book Name : "+ getTitle() + getBookWriter()+" ,scienceField : "+scienceField);
     }
 
     public String getName() {

@@ -8,4 +8,12 @@ public class Researches extends Book {
         super(title, bookWriter);
         this.universityName = universityName;
     }
+
+    public String getUniversityName() {
+        return universityName;
+    }
+
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
+    }
 }
