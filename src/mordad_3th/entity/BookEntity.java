@@ -10,6 +10,12 @@ public class BookEntity extends Entity {
         super();
     }
 
+    public BookEntity(String name, String isbn, int writerId) {
+        this.name = name;
+        this.isbn = isbn;
+        this.writerId = writerId;
+    }
+
     public BookEntity(int id, String name, String isbn, int writerId) {
         super(id);
         this.name = name;

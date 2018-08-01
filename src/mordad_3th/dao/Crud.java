@@ -2,17 +2,19 @@ package mordad_3th.dao;
 
 import mordad_3th.entity.Entity;
 
+import java.sql.SQLException;
+
 public interface Crud {
 
-    boolean create(Entity entity);
+    void create(Entity entity) throws SQLException;
 
-    Entity read(int id);
+    Entity read(int id) throws SQLException;
 
-    boolean update(Entity entity);
+    void update(Entity entity) throws SQLException;
 
-    boolean delete(int id);
+    void delete(int id) throws SQLException;
 
-    Entity[] readAll();
+    Entity[] readAll() throws SQLException;
 
-    boolean empty();
+    void empty() throws SQLException;
 }

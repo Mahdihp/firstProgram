@@ -10,6 +10,12 @@ public class WriterEntity extends Entity {
         super();
     }
 
+    public WriterEntity(String name, int age, String style) {
+        this.name = name;
+        this.age = age;
+        this.style = style;
+    }
+
     public WriterEntity(int id, String name, int age, String style) {
         super(id);
         this.name = name;
