@@ -1,8 +1,7 @@
 package com.mahdi.service.dao;
 
-import mordad_3th.entity.Entity;
 
-import java.sql.SQLException;
+import com.mahdi.service.model.Entity;
 
 public interface Crud {
 
