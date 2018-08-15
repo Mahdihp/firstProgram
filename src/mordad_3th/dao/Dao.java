@@ -1,4 +1,4 @@
-package mordad_3th.dao;
+package com.mahdi.service.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

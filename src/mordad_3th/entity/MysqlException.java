@@ -1,4 +1,4 @@
-package mordad_3th.entity;
+package com.mahdi.service.model;
 
 import java.sql.SQLException;
 

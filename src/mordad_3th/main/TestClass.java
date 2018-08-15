@@ -73,7 +73,7 @@ public class TestClass {
     private static void findByBookId() {
         try {
             BookDao bookDao = new BookDao();
-            System.out.print("Enter Book Id:");
+            System.out.print("Enter Book Id for find:");
             Scanner sc = new Scanner(System.in);
             int id = sc.nextInt();
             Entity read = bookDao.read(id);
@@ -86,7 +86,7 @@ public class TestClass {
     private static void deleteBook() {
         try {
             BookDao bookDao = new BookDao();
-            System.out.print("Enter Book Id:");
+            System.out.print("Enter Book Id for delete:");
             Scanner sc = new Scanner(System.in);
             int id = sc.nextInt();
             bookDao.delete(id);
@@ -99,6 +99,8 @@ public class TestClass {
         try {
             BookDao bookDao = new BookDao();
             Scanner sc = new Scanner(System.in);
+            System.out.print("Enter Writer Name ISBN writer Id:");
+
             String name = sc.next();
             String isbn = sc.next();
             int writer_Id = sc.nextInt();
@@ -123,7 +125,7 @@ public class TestClass {
     private static void findByBookIdWriter() {
         try {
             WriterDao writerDao = new WriterDao();
-            System.out.print("Enter Writer Id:");
+            System.out.print("Enter Writer Id for find:");
             Scanner sc = new Scanner(System.in);
             int id = sc.nextInt();
             Entity read = writerDao.read(id);
@@ -136,7 +138,7 @@ public class TestClass {
     private static void deleteBookWriter() {
         try {
             WriterDao writerDao = new WriterDao();
-            System.out.print("Enter Writer Id:");
+            System.out.print("Enter Writer Id for delete:");
             Scanner sc = new Scanner(System.in);
             int id = sc.nextInt();
             writerDao.delete(id);
@@ -151,10 +153,13 @@ public class TestClass {
 
             WriterDao writerDao = new WriterDao();
             Scanner sc = new Scanner(System.in);
+            System.out.print("Enter Name Age Style Writer Id:");
+
             String name = sc.next();
             int age = sc.nextInt();
             String style = sc.next();
             writerDao.create(new WriterEntity(name, age, style));
+
         } catch (Exception e) {
             e.printStackTrace();
         }

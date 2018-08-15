@@ -1,4 +1,4 @@
-package mordad_3th.dao;
+package com.mahdi.service.dao;
 
 import mordad_3th.entity.BookEntity;
 import mordad_3th.entity.Entity;

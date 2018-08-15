@@ -1,4 +1,4 @@
-package mordad_3th.dao;
+package com.mahdi.service.dao;
 
 import mordad_3th.entity.Entity;
 import mordad_3th.entity.MysqlException;
@@ -13,17 +13,17 @@ public class WriterDao extends Dao {
     }
 
     @Override
-    public void create(Entity entity) throws SQLException {
-
-        WriterEntity writerEntity = (WriterEntity) entity;
-        String sql = "INSERT INTO writer(id,name,age,style) VALUES(?,?,?,?);";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, writerEntity.getId());
-        ps.setString(2, writerEntity.getName());
-        ps.setInt(3, writerEntity.getAge());
-        ps.setString(4, writerEntity.getStyle());
-        ps.executeUpdate();
-
+    public void create(Entity entity) throws Exception {
+try {
+    WriterEntity writerEntity = (WriterEntity) entity;
+    String sql = "INSERT INTO writer(id,name,age,style) VALUES(?,?,?,?);";
+    PreparedStatement ps = connection.prepareStatement(sql);
+    ps.setInt(1, writerEntity.getId());
+    ps.setString(2, writerEntity.getName());
+    ps.setInt(3, writerEntity.getAge());
+    ps.setString(4, writerEntity.getStyle());
+    ps.executeUpdate();
+} catch(Exception e) {}
     }
 
     @Override
