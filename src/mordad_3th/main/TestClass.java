@@ -1,10 +1,10 @@
 package mordad_3th.main;
+;
 
-import mordad_3th.dao.BookDao;
-import mordad_3th.dao.WriterDao;
-import mordad_3th.entity.BookEntity;
-import mordad_3th.entity.Entity;
-import mordad_3th.entity.WriterEntity;
+import com.mahdi.service.dao.BookDao;
+import com.mahdi.service.dao.WriterDao;
+import com.mahdi.service.model.BookEntity;
+import com.mahdi.service.model.Entity;
 
 import java.util.Scanner;
 

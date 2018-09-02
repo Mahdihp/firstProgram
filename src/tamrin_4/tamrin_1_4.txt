@@ -1,0 +1,52 @@
+محدودیت Check ,  SQL CHECK Constraint یا محدودیت های خاص در sql
+
+از محدودیت Check یا محدودیت خاص در اس کیو ال زمانی استفاده میکنیم که بخواهیم برای یک فیلد، یک سری محدودیت خاص روی فیلد تعریف کنیم.
+
+برای مثال : مقادیر داخل فیلد بایستی حتما بزرگتر از 10 باشد در غیر اینصورت در هنگام ورود اطلاعات، کاربر با خطا مواجه گردد.
+
+نکته : محدودیت Check را میتوان برای ستون و جدول تعریف کرد.
+
+محدودیت CHECK هنگامی که جدول ساخته می شود
+
+  برای تعریف یک محدودیت Check در دستور create table ، روی یک ستون از دستور SQL زیر استفاده می کنیم:
+
+CREATE TABLE Persons
+(
+P_Id int NOT NULL CHECK (P_Id>0),
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+)
+
+ برای تعریف یک محدودیت Check  روی چند ستون از دستور SQL زیر استفاده می کنیم:
+
+ CREATE TABLE Persons
+
+(P_Id int NOT NULL,
+
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+)
+
+ محدودیت CHECK پس از ساخته شدن جدول
+
+برای تغییر دادن یک محدودیت Check  روی یک ستون از دستور SQL زیر استفاده می کنیم:
+
+ALTER TABLE Persons
+ADD CHECK (P_Id>0)
+
+ برای تغییر دادن یک محدودیت Check  روی چند ستون از دستور SQL زیر استفاده می کنیم:
+
+ALTER TABLE Persons
+ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+
+از بین بردن محدودیت CHECK
+
+برای از بین بردن محدودیت Check یا محدودیت خاص ، از دستور زیر استفاده می کنیم:
+
+ALTER TABLE Persons
+DROP CHECK chk_Person

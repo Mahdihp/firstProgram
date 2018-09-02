@@ -1,12 +1,10 @@
 package com.mahdi.service.dao;
 
-import mordad_3th.entity.Entity;
-import mordad_3th.entity.MysqlException;
-import mordad_3th.entity.WriterEntity;
+import com.mahdi.service.model.Entity;
 
 import java.sql.*;
 
-public class WriterDao extends Dao {
+public class WriterDao extends com.mahdi.service.dao.Dao {
 
     public WriterDao() throws Exception {
 

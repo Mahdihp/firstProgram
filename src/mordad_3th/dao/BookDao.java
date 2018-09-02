@@ -1,13 +1,15 @@
 package com.mahdi.service.dao;
 
-import mordad_3th.entity.BookEntity;
-import mordad_3th.entity.Entity;
+
+
+import com.mahdi.service.model.BookEntity;
+import com.mahdi.service.model.Entity;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BookDao extends Dao {
+public class BookDao extends com.mahdi.service.dao.Dao {
 
     public BookDao() throws Exception {
 
