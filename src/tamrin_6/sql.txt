@@ -1,0 +1,17 @@
+# tamrin 6 => 2 = > 1
+# SELECT Course.course_name,C.course_name from Course
+# left join Course C on Course.id = C.course_fk
+# where C.course_fk <> ''
+
+# tamrin 6 => 2 => 2
+# SELECT course_name from Course
+# where course_fk IS NULL
+
+# tamrin 6 => 2 => 3
+# SELECT course_name from Course
+# WHERE id <> course_fk
+
+# tamrin 6 => 2 => 4
+# SELECT course_name from Course
+# left join Department D on Course.course_fk = D.id
+# where course_fk IS NOT NULL
